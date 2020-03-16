@@ -1,6 +1,6 @@
 import Phaser from "phaser";
-import Scene1 from "./Scene1";
-import Scene2 from "./Scene2";
+import Scene1 from "./Scene1.js";
+import Scene2 from "./Scene2.js";
 
 const config = {
   width: 256,
@@ -12,4 +12,6 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
+
+export default config;
 
