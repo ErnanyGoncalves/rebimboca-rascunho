@@ -7,6 +7,9 @@ import upSS from "./assets/spritesheets/power-up.png";
 import playerSS from "./assets/spritesheets/player.png";
 import beamSS from "./assets/spritesheets/beam.png";
 
+import fontPNG from "./assets/font/font.png";
+import fontXML from "./assets/font/font.xml";
+
 
 export default class Scene1 extends Phaser.Scene{
     constructor(){
@@ -49,6 +52,8 @@ export default class Scene1 extends Phaser.Scene{
             frameWidth:16,
             frameHeight:16
         });
+
+        this.load.bitmapFont("pixelFont",fontPNG,fontXML);
     }
 
     create(){
