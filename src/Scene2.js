@@ -1,4 +1,5 @@
 import {gameSettings,config,game} from "./index.js";
+import Beam from "./beam.js";
 
 export default class Scene2 extends Phaser.Scene{
     constructor(){
@@ -40,6 +41,7 @@ export default class Scene2 extends Phaser.Scene{
         this.player.setCollideWorldBounds(true);
 
         this.spacebar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        this.projectiles = this.add.group();
 
         this.ship1.play("ship1_anim");
         this.ship2.play("ship2_anim");
@@ -91,6 +93,12 @@ export default class Scene2 extends Phaser.Scene{
         }
     }
 
+
+    shootBeam(){
+        const beam = new Beam(this);
+    }
+
+
     update(){
         this.moveShip(this.ship1,1);
         this.moveShip(this.ship2,2);
@@ -100,7 +108,11 @@ export default class Scene2 extends Phaser.Scene{
 
         this.movePlayerManager();
         if(Phaser.Input.Keyboard.JustDown(this.spacebar)){
-            console.log("Fire!");
+            this.shootBeam();
+        }
+        for (let i = 0; i < this.projectiles.getChildren().length; i++) {
+            const beam = this.projectiles.getChildren()[i];
+            beam.update();
         }
     }
 }

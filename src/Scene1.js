@@ -5,6 +5,7 @@ import ship3SS from "./assets/spritesheets/ship3.png";
 import boomSS from "./assets/spritesheets/explosion.png";
 import upSS from "./assets/spritesheets/power-up.png";
 import playerSS from "./assets/spritesheets/player.png";
+import beamSS from "./assets/spritesheets/beam.png";
 
 
 export default class Scene1 extends Phaser.Scene{
@@ -43,6 +44,10 @@ export default class Scene1 extends Phaser.Scene{
         this.load.spritesheet("player",playerSS,{
             frameWidth:16,
             frameHeight:24
+        });
+        this.load.spritesheet("beam",beamSS,{
+            frameWidth:16,
+            frameHeight:16
         });
     }
 
@@ -106,6 +111,13 @@ export default class Scene1 extends Phaser.Scene{
             frames:this.anims.generateFrameNumbers("player"),
             frameRate:20,
             repeat:-1
+        });
+
+        this.anims.create({
+            key:"beam_anim",
+            frames:this.anims.generateFrameNumbers("beam"),
+            frameRate:20,
+            repeat: -1
         });
 
     }
