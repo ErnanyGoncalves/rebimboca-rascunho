@@ -2,6 +2,10 @@ import Phaser from "phaser";
 import Scene1 from "./Scene1.js";
 import Scene2 from "./Scene2.js";
 
+const gameSettings = {
+  playerSpeed:200
+}
+
 const config = {
   width: 256,
   height: 272,
@@ -20,4 +24,4 @@ const config = {
 const game = new Phaser.Game(config);
 
 
-export {config,game};
+export {gameSettings,config,game};
