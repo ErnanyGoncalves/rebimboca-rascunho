@@ -3,6 +3,7 @@ import ship1SS from "./assets/spritesheets/ship.png";
 import ship2SS from "./assets/spritesheets/ship2.png";
 import ship3SS from "./assets/spritesheets/ship3.png";
 import boomSS from "./assets/spritesheets/explosion.png";
+import upSS from "./assets/spritesheets/power-up.png";
 
 
 export default class Scene1 extends Phaser.Scene{
@@ -32,6 +33,11 @@ export default class Scene1 extends Phaser.Scene{
             frameWidth:16,
             frameHeight:16
         });
+
+        this.load.spritesheet("power-up",upSS,{
+            frameWidth:16,
+            frameHeight:16
+        });
     }
 
     create(){
@@ -39,7 +45,8 @@ export default class Scene1 extends Phaser.Scene{
         this.add.text(20,20,"Loading game...");
         setTimeout(()=>{
             this.scene.start("playGame");
-        },1500)
+        },1500);
+        
         
     }
 }
