@@ -35,24 +35,7 @@ export default class Scene2 extends Phaser.Scene{
 
         this.score = 0;
         this.scoreLabel = this.add.bitmapText(10,5,"pixelFont","SCORE",16);
-
-        this.beamSound = this.sound.add("audio_beam");
-        this.explosionSound = this.sound.add("audio_explosion");
-        this.pickupSound = this.sound.add("audio_pickup");
         
-        this.music = this.sound.add("music");
-
-        const musicConfig = {
-            mute:false,
-            volume:1,
-            rate:1,
-            detune:0,
-            seek:0,
-            loop:false,
-            delay:0
-        };
-
-        this.music.play(musicConfig);
 
         this.powerUps = this.physics.add.group();
 
@@ -140,12 +123,10 @@ export default class Scene2 extends Phaser.Scene{
 
     shootBeam(){
         const beam = new Beam(this);
-        this.beamSound.play();
     }
 
     pickPowerUp(player,powerUp){
         powerUp.disableBody(true,true);
-        this.pickupSound.play();
     }
 
     hurtPlayer(player,enemy){
@@ -171,7 +152,6 @@ export default class Scene2 extends Phaser.Scene{
         this.score += 15;
         let scoreFormated = this.zeroPad(this.score,6);
         this.scoreLabel.text = "SCORE " + scoreFormated;
-        this.explosionSound.play();
     }
 
     zeroPad(number,size){
