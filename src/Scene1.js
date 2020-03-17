@@ -10,6 +10,15 @@ import beamSS from "./assets/spritesheets/beam.png";
 import fontPNG from "./assets/font/font.png";
 import fontXML from "./assets/font/font.xml";
 
+import beamOGG from "./assets/sounds/beam.ogg";
+import beamMP3 from "./assets/sounds/beam.mp3";
+// import explosionOGG from "./assets/sounds/explosion.ogg";
+// import explosionMP3 from "./assets/sounds/explosion.mp3";
+// import pickupOGG from "./assets/sounds/pickup.ogg";
+// import pickupMP3 from "./assets/sounds/pickup.mp3";
+// import scifiOGG from "./assets/sounds/sci-fi_platformer12.ogg";
+// import scifiMP3 from "./assets/sounds/sci-fi_platformer12.mp3";
+
 
 export default class Scene1 extends Phaser.Scene{
     constructor(){
@@ -54,6 +63,11 @@ export default class Scene1 extends Phaser.Scene{
         });
 
         this.load.bitmapFont("pixelFont",fontPNG,fontXML);
+
+        this.load.audio("audio_beam",["assets/sounds/beam.ogg","assets/sounds/beam.mp3"]);
+        this.load.audio("audio_explosion",["assets/sounds/explosion.ogg","assets/sounds/explosion.ogg"]);
+        this.load.audio("audio_pickup",["assets/sounds/pickup.ogg","assets/sounds/pickup.mp3"]);
+        this.load.audio("music",["assets/sounds/sci-fi_platformer12.ogg","assets/sounds/sci-fi_platformer12.mp3"]);
     }
 
     create(){
