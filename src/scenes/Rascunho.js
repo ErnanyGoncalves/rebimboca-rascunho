@@ -20,24 +20,24 @@ export default class Menu extends Phaser.Scene {
             this.color = "0x000000";
             this.mouse = this.add.graphics().setDepth(1).fillStyle(this.color);
 
-            this.interactiveZone = this.add.zone(20, 20, 230, 235).setOrigin(0,0).setDepth(1).setInteractive();
+            this.interactiveZone = this.add.zone(20, 20, 230, 235).setOrigin(0, 0).setDepth(1).setInteractive();
 
-            this.fechar = this.add.image(225, 0, "botao_fechar").setOrigin(0,0).setDepth(2).setInteractive();
-            this.lapis = this.add.image(40, 33 , "lapis").setOrigin(0,0).setDepth(2).setInteractive();
-            this.borracha = this.add.image(80, 35, "borracha").setOrigin(0,0).setDepth(2).setInteractive();
-            this.x = this.add.image(130, 35, "X").setOrigin(0,0).setDepth(2).setInteractive();
-            this.cor_branco = this.add.image(170, 30, "retangulo_branco").setOrigin(0,0).setDepth(2).setInteractive();
-            this.cor_preto = this.add.image(190, 30, "retangulo_preto").setOrigin(0,0).setDepth(2).setInteractive();
-            this.cor_amarelo = this.add.image(210, 30, "retangulo_amarelo").setOrigin(0,0).setDepth(2).setInteractive();
-            this.cor_verde = this.add.image(170, 50, "retangulo_verde").setOrigin(0,0).setDepth(2).setInteractive();
-            this.cor_vermelho = this.add.image(190, 50, "retangulo_vermelho").setOrigin(0,0).setDepth(2).setInteractive();
-            this.cor_azul = this.add.image(210, 50, "retangulo_azul").setOrigin(0,0).setDepth(2).setInteractive();
+            this.fechar = this.add.image(225, 0, "botao_fechar").setOrigin(0, 0).setDepth(2).setInteractive();
+            this.lapis = this.add.image(40, 33, "lapis").setOrigin(0, 0).setDepth(2).setInteractive();
+            this.borracha = this.add.image(80, 35, "borracha").setOrigin(0, 0).setDepth(2).setInteractive();
+            this.x = this.add.image(130, 35, "X").setOrigin(0, 0).setDepth(2).setInteractive();
+            this.cor_branco = this.add.image(170, 30, "retangulo_branco").setOrigin(0, 0).setDepth(2).setInteractive();
+            this.cor_preto = this.add.image(190, 30, "retangulo_preto").setOrigin(0, 0).setDepth(2).setInteractive();
+            this.cor_amarelo = this.add.image(210, 30, "retangulo_amarelo").setOrigin(0, 0).setDepth(2).setInteractive();
+            this.cor_verde = this.add.image(170, 50, "retangulo_verde").setOrigin(0, 0).setDepth(2).setInteractive();
+            this.cor_vermelho = this.add.image(190, 50, "retangulo_vermelho").setOrigin(0, 0).setDepth(2).setInteractive();
+            this.cor_azul = this.add.image(210, 50, "retangulo_azul").setOrigin(0, 0).setDepth(2).setInteractive();
 
-            
+
             //Mover mouse
             this.interactiveZone.on("pointermove", ({ x, y, isDown }) => {
                 if (isDown) {
-                    this.mouse.fillRect(x, y, 3, 3);
+                    this.mouse.fillPoint(x,y,7);
                 }
             });
 
@@ -62,7 +62,6 @@ export default class Menu extends Phaser.Scene {
 
             // Botão X (limpa o desenho)   
             this.x.on("pointerdown", () => {
-                console.log("X");
                 this.mouse.clear();
                 this.color = "0x000000";
                 this.mouse.fillStyle(this.color);
