@@ -35,9 +35,12 @@ export default class Menu extends Phaser.Scene {
 
 
             //Mover mouse
-            this.interactiveZone.on("pointermove", ({ x, y, isDown }) => {
-                if (isDown) {
-                    this.mouse.fillPoint(x,y,7);
+            this.interactiveZone.on("pointermove", (pointer) => {
+                if (pointer.isDown) {
+                    const points = pointer.getInterpolatedPosition(30);
+                    points.forEach(p => {
+                        this.mouse.fillPoint(p.x, p.y, 7);
+                    });
                 }
             });
 
