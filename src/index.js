@@ -1,25 +1,18 @@
 import Phaser from "phaser";
-import Scene1 from "./Scene1.js";
-import Scene2 from "./Scene2.js";
-
-const gameSettings = {
-  playerSpeed: 200
-};
+import Rascunho from "./scenes/Rascunho";
 
 const config = {
-  width: 256,
-  height: 272,
+  type: Phaser.AUTO,
+  width: 274,
+  mode: Phaser.Scale.FIT,
+  autoCenter: Phaser.Scale.CENTER_BOTH,
+  height: 278,
+  autoCenter: 1,
+  // scaleMode: 3,
   backgroundColor: "0x000000",
-  scene: [Scene1, Scene2],
-  pixelArt: true,
-  physics: {
-    default: "arcade",
-    arcade: {
-      debug: false
-    }
-  }
+  scene: [Rascunho]
 };
 
 const game = new Phaser.Game(config);
 
-export { gameSettings, config, game };
+export { game };
