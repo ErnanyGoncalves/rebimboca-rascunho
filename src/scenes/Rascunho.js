@@ -21,19 +21,20 @@ export default class Menu extends Phaser.Scene {
 
 
             this.rascunho = this.add.image(0, 0, "rascunho").setOrigin(0, 0).setInteractive();
-        
+            //Mover mouse
             this.rascunho.on("pointermove", ({ x, y, isDown }) => {
                 if (isDown) {
-                    console.log("Andando");
-                    this.mouse.fillRect(x,y,2,2);
+                    this.mouse.fillRect(x, y, 3, 3);
                 }
             });
 
-
+            // Botão fechar (no momento só limpa o desenho)
             this.fechar = this.add.image(225, 0, "botao_fechar").setOrigin(0).setInteractive();
             this.fechar.on("pointerdown", () => {
                 console.log("Fechei");
-                this.rascunho.clear();
+                this.mouse.clear();
+                this.color = "0x000000";
+                this.mouse.fillStyle(this.color);
             });
 
             this.lapis = this.add.image(40, 40, "lapis").setInteractive();
@@ -48,10 +49,13 @@ export default class Menu extends Phaser.Scene {
                 this.mode = "erase";
             });
 
+            // Botão X (limpa o desenho)
             this.x = this.add.image(120, 40, "X").setInteractive();
             this.x.on("pointerdown", () => {
                 console.log("X");
-                this.rascunho.clear();
+                this.mouse.clear();
+                this.color = "0x000000";
+                this.mouse.fillStyle(this.color);
             });
 
 
