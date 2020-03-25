@@ -1,6 +1,13 @@
 import Phaser from "phaser";
 import Rascunho from "./scenes/Rascunho";
 
+
+// Draw on texture
+// https://phaser.io/examples/v3/view/game-objects/render-texture/draw-on-texture
+
+// Draw
+// https://phaser.io/examples/v3/view/game-objects/shapes/draw
+
 const config = {
   type: Phaser.AUTO,
   width: 274,
