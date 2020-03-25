@@ -14,43 +14,53 @@ export default class Menu extends Phaser.Scene {
         this.loader.start(AssetManifest);
         this.loader.load().then(() => {
 
+            this.rascunho = this.add.image(0, 0, "rascunho").setOrigin(0, 0);
 
-            this.mode = "draw";
+
             this.color = "0x000000";
             this.mouse = this.add.graphics().setDepth(1).fillStyle(this.color);
 
+            this.interactiveZone = this.add.zone(20, 20, 230, 235).setOrigin(0,0).setDepth(1).setInteractive();
 
-            this.rascunho = this.add.image(0, 0, "rascunho").setOrigin(0, 0).setInteractive();
+            this.fechar = this.add.image(225, 0, "botao_fechar").setOrigin(0,0).setDepth(2).setInteractive();
+            this.lapis = this.add.image(40, 33 , "lapis").setOrigin(0,0).setDepth(2).setInteractive();
+            this.borracha = this.add.image(80, 35, "borracha").setOrigin(0,0).setDepth(2).setInteractive();
+            this.x = this.add.image(130, 35, "X").setOrigin(0,0).setDepth(2).setInteractive();
+            this.cor_branco = this.add.image(170, 30, "retangulo_branco").setOrigin(0,0).setDepth(2).setInteractive();
+            this.cor_preto = this.add.image(190, 30, "retangulo_preto").setOrigin(0,0).setDepth(2).setInteractive();
+            this.cor_amarelo = this.add.image(210, 30, "retangulo_amarelo").setOrigin(0,0).setDepth(2).setInteractive();
+            this.cor_verde = this.add.image(170, 50, "retangulo_verde").setOrigin(0,0).setDepth(2).setInteractive();
+            this.cor_vermelho = this.add.image(190, 50, "retangulo_vermelho").setOrigin(0,0).setDepth(2).setInteractive();
+            this.cor_azul = this.add.image(210, 50, "retangulo_azul").setOrigin(0,0).setDepth(2).setInteractive();
+
+            
             //Mover mouse
-            this.rascunho.on("pointermove", ({ x, y, isDown }) => {
+            this.interactiveZone.on("pointermove", ({ x, y, isDown }) => {
                 if (isDown) {
                     this.mouse.fillRect(x, y, 3, 3);
                 }
             });
 
             // Botão fechar (no momento só limpa o desenho)
-            this.fechar = this.add.image(225, 0, "botao_fechar").setOrigin(0).setInteractive();
             this.fechar.on("pointerdown", () => {
-                console.log("Fechei");
                 this.mouse.clear();
                 this.color = "0x000000";
                 this.mouse.fillStyle(this.color);
             });
 
-            this.lapis = this.add.image(40, 40, "lapis").setInteractive();
+            //Lapis
             this.lapis.on("pointerdown", () => {
-                console.log("Lapis");
-                this.mode = "draw";
+                this.color = "0x000000";
+                this.mouse.fillStyle(this.color);
             });
 
-            this.borracha = this.add.image(80, 40, "borracha").setInteractive();
+            // Borracha        
             this.borracha.on("pointerdown", () => {
-                console.log("Borracha");
-                this.mode = "erase";
+                this.color = "0xcccccc";
+                this.mouse.fillStyle(this.color);
             });
 
-            // Botão X (limpa o desenho)
-            this.x = this.add.image(120, 40, "X").setInteractive();
+            // Botão X (limpa o desenho)   
             this.x.on("pointerdown", () => {
                 console.log("X");
                 this.mouse.clear();
@@ -59,49 +69,42 @@ export default class Menu extends Phaser.Scene {
             });
 
 
-            //Branco
-            this.cor_branco = this.add.image(160, 30, "retangulo_branco").setInteractive();
+            //Branco       
             this.cor_branco.on("pointerdown", () => {
                 this.color = "0xffffff";
                 this.mouse.fillStyle(this.color);
             });
 
 
-            //Preto
-            this.cor_preto = this.add.image(180, 30, "retangulo_preto").setInteractive();
+            //Preto      
             this.cor_preto.on("pointerdown", () => {
                 this.color = "0x000000";
                 this.mouse.fillStyle(this.color);
             });
 
             //Amarelo
-            this.cor_amarelo = this.add.image(200, 30, "retangulo_amarelo").setInteractive();
             this.cor_amarelo.on("pointerdown", () => {
                 this.color = "0xffff00";
                 this.mouse.fillStyle(this.color);
             });
 
             //Verde
-            this.cor_verde = this.add.image(160, 50, "retangulo_verde").setInteractive();
             this.cor_verde.on("pointerdown", () => {
                 this.color = "0x00ff00";
                 this.mouse.fillStyle(this.color);
             });
 
             // Vermelho
-            this.cor_vermelho = this.add.image(180, 50, "retangulo_vermelho").setInteractive();
             this.cor_vermelho.on("pointerdown", () => {
                 this.color = "0xff0000";
                 this.mouse.fillStyle(this.color);
             });
 
             //Azul
-            this.cor_azul = this.add.image(200, 50, "retangulo_azul").setInteractive();
             this.cor_azul.on("pointerdown", () => {
                 this.color = "0x0000ff";
                 this.mouse.fillStyle(this.color);
             });
-
         });
     }
 

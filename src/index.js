@@ -15,7 +15,7 @@ const config = {
   autoCenter: Phaser.Scale.CENTER_BOTH,
   height: 278,
   autoCenter: 1,
-  // scaleMode: 3,
+  scaleMode: 3,
   backgroundColor: "0x000000",
   scene: [Rascunho]
 };
