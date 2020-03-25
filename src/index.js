@@ -8,7 +8,7 @@ import Rascunho from "./scenes/Rascunho";
 // Draw
 // https://phaser.io/examples/v3/view/game-objects/shapes/draw
 
-// Desenhando o caminho
+// Desenhando o caminho constante
 // https://github.com/photonstorm/phaser3-examples/blob/master/public/src/game%20objects/render%20texture/paint%20interpolated%20shadow.js
 
 const config = {
@@ -24,5 +24,3 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
-
-export { game };
