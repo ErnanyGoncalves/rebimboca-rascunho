@@ -8,10 +8,10 @@ export default class RascunhoBotao extends ClickImage {
         this.setDepth(2);
 
         this.on("pointerdown", () => {
-            if(asset === "X"){
+            if (asset === "X") {
                 scene.mouse.clear();
             }
-            scene.mouse.setColor(cor);
+            scene.mouse.setColor(this.cor);
         });
     }
 

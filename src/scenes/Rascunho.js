@@ -17,13 +17,15 @@ export default class Rascunho extends ClickScene {
     create() {
         this.loader.start(AssetManifest);
         this.loader.load().then(() => {
-            this.mouse = new ClickMouse(this, "0x000000");
+            this.color = "0x000000";
+            this.mouse = new ClickMouse(this);
+
             this.rascunho = new RascunhoPapel(this);
 
             this.fechar = new BotaoFechar(this);
 
-            this.x = new RascunhoBotao(this, 130, 35, "X", "0x000000");
-            this.lapis = new RascunhoBotao(this, 40, 33, "lapis", "0x000000");
+            this.x = new RascunhoBotao(this, 130, 35, "X", this.color);
+            this.lapis = new RascunhoBotao(this, 40, 33, "lapis", this.color);
             this.borracha = new RascunhoBotao(this, 80, 35, "borracha", "0xcccccc");
 
             this.cor_branco = new RascunhoBotao(this, 170, 30, "retangulo_branco", "0xffffff");
@@ -34,5 +36,4 @@ export default class Rascunho extends ClickScene {
             this.cor_azul = new RascunhoBotao(this, 210, 50, "retangulo_azul", "0x0000ff");
         });
     }
-
 }
