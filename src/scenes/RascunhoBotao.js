@@ -6,10 +6,9 @@ export default class RascunhoBotao extends ClickImage {
         this.cor = cor;
         this.setInteractive();
         this.setDepth(2);
-        console.log(asset);
 
         this.on("pointerdown", () => {
-            if(asset === "X" || asset === "botao_fechar"){
+            if(asset === "X"){
                 mouse.clear();
             }
             mouse.setColor(cor);

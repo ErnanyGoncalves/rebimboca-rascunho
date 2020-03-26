@@ -2,6 +2,7 @@ import ClickScene from "../classes/ClickScene";
 import AssetManifest from "./AssetManifest";
 import RascunhoBotao from "./RascunhoBotao";
 import RascunhoPapel from "./RascunhoPapel";
+import BotaoFechar from "./BotaoFechar";
 import ClickMouse from "../classes/ClickMouse";
 
 export default class Menu extends ClickScene {
@@ -17,13 +18,11 @@ export default class Menu extends ClickScene {
         this.loader.start(AssetManifest);
         this.loader.load().then(() => {
             this.mouse = new ClickMouse(this, "0x000000");
-
             this.rascunho = new RascunhoPapel(this, this.mouse);
 
+            this.fechar = new BotaoFechar(this);
 
             this.x = new RascunhoBotao(this, 130, 35, "X", "0x000000", this.mouse);
-            this.fechar = new RascunhoBotao(this, 225, 0, "botao_fechar", "0x000000", this.mouse);
-
             this.lapis = new RascunhoBotao(this, 40, 33, "lapis", "0x000000", this.mouse);
             this.borracha = new RascunhoBotao(this, 80, 35, "borracha", "0xcccccc", this.mouse);
 
