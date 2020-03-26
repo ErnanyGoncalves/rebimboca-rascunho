@@ -10,6 +10,8 @@ export default class ClickMouse extends GameObjects.Graphics {
     }
 
     setColor(color){
+        if(color !== "0xcccccc")
+            this.scene.color = color;
         this.fillStyle(color);
     }
 }
